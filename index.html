@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon" sizes="256x256"/>
+    <link type="text/css" href="css/style.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
+    <script src="js/index.js"></script>
+    <title>GEN6 Messenger</title>
+</head>
+<body>
+
+    <!-- POPUP REGISTER WINDOW -->
+    <div class="popup-overlay" id="register-popup-wnd">
+        <div class="popup-window">
+            <button class="popup-close" id="popupClose">X</button>
+            <h2>Welcome!</h2>
+            <p>Please identify yourself</p>
+            
+            <form id="identityForm" class="login-form"> 
+                <div class="form-field">
+                    <label for="display" class="required-label">Name:</label>  
+                    <input type="text" name="display" maxlength="32" required>
+                </div>
+                
+                <div class="form-field">
+                    <label for="email">Email:</label> 
+                    <input type="email" name="email" maxlength="32">
+                </div>
+                <div class="form-field">
+                    <label for="address">Address:</label> 
+                    <input type="text" name="address" maxlength="32"></div>
+                <div class="form-field">
+                    <label for="telephoneNumber">Mobile:</label> 
+                    <input type="tel" name="telephoneNumber" maxlength="16">
+                </div>
+                <div class="form-field"> 
+                    <label for="bio">Bio:</label>
+                    <input type="text" name="bio" maxlength="32">
+                </div>
+                <div class="form-field">
+                    <label for="website">Website:</label>
+                    <input type="url" name="website" maxlength="32">
+                </div>
+                <div class="form-field">
+                    <label for="telegram">Telegram:</label>
+                    <input type="text" name="telegram" maxlength="32">
+                </div>
+                <div class="form-field">
+                    <label for="discord">Discord:</label> 
+                    <input type="text" name="discord" maxlength="32">
+                </div>
+                <div class="form-field">
+                    <label for="linkedin">LinkedIn:</label>
+                    <input type="text" name="linkedin" maxlength="32">
+                </div>
+                <div class="form-field">
+                    <label for="instagram">Instagram:</label> 
+                    <input type="text" name="instagram" maxlength="32">
+                </div>
+                <div class="form-field">
+                    <label for="medium">Medium:</label> 
+                    <input type="text" name="medium" maxlength="32">
+                </div>
+                <div class="form-field">
+                    <label for="youtube">YouTube:</label> 
+                    <input type="text" name="youtube" maxlength="32">
+                </div>
+                <div class="form-field">
+                    <label for="git">GitHub:</label> 
+                    <input type="text" name="git" maxlength="32">
+                </div>
+                <div class="form-field">
+                    <label for="mastodon">Mastodon:</label> 
+                    <input type="text" name="mastodon" maxlength="32">
+                </div>
+                <button type="submit" class="action-btn-big btn-green">Submit</button>
+            </form>
+
+            
+        </div>
+    </div>
+
+    <div class="section" id="top-menu">
+        <h1>G6 Messenger</h1>
+        <div id="user-info-btn" class="bordered-button flex-row-center">
+            <div class="user-avatar"><img src="images/dots-logo.png" alt="Don Pedro"></div>
+            <div class="user-name">Don Pedro <span class="user-email">(<a href="#">pedro@pedro.net</a>)</span></div>
+        </div>
+    </div>
+
+    <div id="center-block" class="section">
+        
+        <div id="left-menu" class="vsection">
+            <div id="user-info-block" class="bordered-block">
+                <div class="block-title flex-row-center">
+                    <div class="user-avatar"><img src="images/dots-logo.png" alt="Don Pedro"></div>
+                    <div class="user-data">
+                        <div class="user-name">Don Pedro <span class="user-email">(<a href="#">pedro@pedro.net</a>)</span></div>
+                        <div class="small-txt">g6B...BgP</div>
+                    </div>
+                </div>
+                <div class="action-btns flex-row-center">
+                    <button class="action-btn">Switch</button>
+                    <button class="action-btn">Edit</button>
+                </div>
+            </div>
+
+            <div id="mail-activity-stat" class="bordered-block">
+                <div class="block-title">
+                    <h3>Mailbox</h3>
+                </div>
+                <ul class="activity-list">
+                    <li><span>Inbox:</span><span>12</span></li>
+                    <li><span>Sent:</span><span>48</span></li>
+                    <li><span>Unread:</span><span><b>4</b></span></li>
+                </ul>
+                <div class="activity-footer">
+                    <span>Total: </span>
+                    <span>123456</span>
+                </div>
+            </div>
+        </div>
+        
+        <div id="main-block">
+            <div id="mailbox" class="section">
+                <div class="bordered-block" id="incoming-msg">
+                    <div class="block-title"><h3>Inbox</h3></div>
+                    <div class="block-content">
+                        <table class="mail-list" cellspacing="0" cellpadding="5">
+                            <thead>
+                                <tr>
+                                    <th>Sender</th>
+                                    <th>Message</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>[John Doe]</td>
+                                    <td>Hello, how are you?</td>
+                                </tr>
+                                <tr>
+                                    <td>[Olivia Peterson]</td>
+                                    <td>Important Update on Your Subscription</td>
+                                </tr>
+                                <tr>
+                                    <td>[James Carter]</td>
+                                    <td>Don't Miss Out on Our Exclusive Offer!</td>
+                                </tr>
+                                <tr>
+                                    <td>[Emily Thompson]</td>
+                                    <td>Your Weekly Report Is Ready</td>
+                                </tr>
+                                <tr>
+                                    <td>[Michael Harris]</td>
+                                    <td>Action Required: Verify Your Email Address</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    
+
+</body>
+</html>
