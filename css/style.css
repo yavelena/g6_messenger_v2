@@ -106,7 +106,6 @@ button{
     background-size: 30px;
     padding: 20px 30px;
     padding-left: 60px;
-
 }
 
 
@@ -258,7 +257,7 @@ form button{
     max-width: 40%;
 }
 .write-msg-btn{
-    background-image: url('/images/write_pen_icon.png');
+    background-image: url('../images/write_pen_icon.png');
 
 }
 
