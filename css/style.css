@@ -1,12 +1,13 @@
 :root {
     --clr-html-text: #ddd;
-    --clr-dark-btn-title: #555;
-    --clr-body-bg-light: #4f7c8f;
+    --clr-dark-text: #555;
+    --clr-body-bg-light: rgb(79, 124, 143);
     --clr-body-bg-dark: #342e62;
-    --clr-red: #f44336;
-    --clr-red-hovered: #d32f2f;
+    --clr-overlay-bg: #100f1d;
+    --clr-red: #FF4C4C;
+    --clr-red-hovered: #FF1F1F ;
     --clr-green-light: #b8fdd9;
-    --clr-green-light-hover: #9fdabb;
+    --clr-green-light-hover: #96fcc7;
     --size_border-radius-large: 50px;
     --size_border-radius-big: 32px;
     --size_border-radius-medium: 16px;
@@ -57,11 +58,16 @@ button{
 .vsection{
     gap: 2vw;
 }
-.bordered-block, .bordered-button{
+.bordered-block, .bordered-button, .bordered-button-dark{
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: var(--size_border-radius-large);
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
     padding: 10px 15px;
+}
+.bordered-button-dark{
+    /* border: 1px solid rgba(0, 0, 0, 0.2); */
+    background: var(--clr-body-bg-light);
+    color: #ddd;
 }
 .bordered-block{
     padding: 15px 20px;
@@ -72,6 +78,13 @@ button{
 .bordered-block .block-title{
     margin-bottom: 10px;
 }
+.bg-light{
+    background: #fff;
+    color: var(--clr-dark-text) !important;
+}
+.bg-dark{
+    background: var(--clr-body-bg-light) !important;
+}
 
 
 /* BUTTONS  */
@@ -80,7 +93,7 @@ button{
     display: inline-block;
     font-size: var(--font-size-small);
     font-weight: 600;
-    color: var(--clr-dark-btn-title);
+    color: var(--clr-dark-text);
     text-align: center;
     padding: 8px 12px;
     border-radius: var(--size_border-radius-big);
@@ -92,6 +105,11 @@ button{
 .action-btn-big{
     padding: 10px 20px;
     font-size: var(--font-size-normal);
+}
+.action-btn:hover, .action-btn-big:hover {
+    box-shadow: 0 0 1px 1px var(--clr-body-bg-dark) 
+    0 0 5px 1px var(--clr-body-bg-light); 
+    transform: scale(1.01);
 }
 .btn-green{
     background-color: var(--clr-green-light);
@@ -162,23 +180,37 @@ table th {
     left: 0;
     width: 100%;
     height: 100%;
-    background: var(--clr-body-bg-dark);
+    background: var(--clr-overlay-bg);
     display: flex;
     justify-content: center;
     align-items: center;
     visibility: hidden;
     opacity: 0;
     transition: visibility 0s, opacity 0.3s ease;
+    z-index: 1000;
 }
-.popup-window {
+.popup-overlay.active {
+    visibility: visible;
+    opacity: 1;
+}
+.transparent-overlay.active {
+    background: rgba(0, 0, 0, 0.7);
+    transition: visibility 0s, opacity 0.3s ease;
+}
+.popup-window{
     position: relative;
-    background: rgba(0, 0, 0, 0.3);
     border-radius: var(--size_border-radius-medium);
     padding: 1rem;
     text-align: center;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     max-width: 300px;
     width: 100%;
+}
+
+.transparent-overlay.active .popup-window{
+    /* background: var(--clr-body-bg-light); */
+    opacity: 1;
+    z-index: 1001;
 }
 .popup-close {
     position: absolute;
@@ -194,14 +226,11 @@ table th {
 .popup-close:hover {
     background: var(--clr-red-hovered);
 }
-.popup-overlay.active {
-    visibility: visible;
-    opacity: 1;
-}
+
 
 
 /* FORMS  */
-.form-field input {
+.form-field input, textarea {
     width: 100%;
     padding: 10px;
     margin: 5px 0;
@@ -227,15 +256,20 @@ table th {
 }
 form button{
     margin-top: 1rem;
-    width: 100%;
+    /* width: 100%; */
 }
 
+
+
+#register-popup .popup-window{
+    max-width: 500px;
+}
 #identityForm{
     max-width: 600px;
 }
-
-
-
+#register-submit-btn{
+    width: 100%;
+}
 
 #top-menu{
     justify-content: space-between;
@@ -250,14 +284,37 @@ form button{
     transform: scale(1.1); 
 }
 
-
-
 #left-menu{
     min-width: 200px;
     max-width: 40%;
 }
-.write-msg-btn{
-    background-image: url('../images/write_pen_icon.png');
 
+#new-msg-btn{
+    background-image: url('../images/write_pen_icon.png');
 }
 
+#new-msg-popup .popup-window{
+    max-width: 600px;
+}
+#add-recipient-popup .popup-window{
+    max-width: 500px;
+    max-height: 75vh;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+#add-recipient-popup button{
+    cursor: pointer;
+}
+#new-msg-attach-file{
+    background-image: url('../images/attachment_icon.png');
+}
+#new-msg-send{
+    background-image: url('../images/send_icon.png');
+}
+#new-msg-btns-block{
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}

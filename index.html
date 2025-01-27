@@ -14,8 +14,8 @@
 <body>
 
     <!-- POPUP REGISTER WINDOW -->
-    <div class="popup-overlay" id="register-popup-wnd">
-        <div class="popup-window">
+    <div class="popup-overlay" id="register-popup">
+        <div class="popup-window bg-dark">
             <button class="popup-close" id="popupClose">X</button>
             <h2>Welcome!</h2>
             <p>Please identify yourself</p>
@@ -77,18 +77,74 @@
                     <label for="mastodon">Mastodon:</label> 
                     <input type="text" name="mastodon" maxlength="32">
                 </div>
-                <button type="submit" class="action-btn-big btn-green">Submit</button>
+                <button type="submit" class="action-btn-big btn-green" id="register-submit-btn">Submit</button>
             </form>
 
             
         </div>
     </div>
 
+    
+    <!-- POPUP NEW MESSAGE WINDOW -->
+    <div class="popup-overlay transparent-overlay" id="new-msg-popup">
+        <div class="popup-window bg-dark">
+            <button class="popup-close" id="popupClose">X</button>
+            <h2>New message</h2>
+            
+            <button class="action-btn" id="add-recipient-btn">Add recipient</button>
+            <div id="new-msg-recipient-lst"></div>
+            <form id="writeMsgForm" class="login-form"> 
+                <div class="form-field">
+                    <label for="subject">Subject:</label>  
+                    <input type="text" name="new-msg-subject" maxlength="32" required>
+                </div>
+                <div class="form-field">
+                    <textarea name="new-msg-text" id="message" cols="30" rows="10" placeholder="Type your message here..."></textarea>
+                </div>
+                <div class="form-field" id="new-msg-btns-block">
+                    <button class="action-btn-big icon-btn" id="new-msg-attach-file">Attach file</button>
+                    <button type="submit" class="action-btn-big btn-green icon-btn" id="new-msg-send">Send</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+     <!-- POPUP ADD RECIPIENT WINDOW -->
+     <div class="popup-overlay transparent-overlay" id="add-recipient-popup">
+        <div class="popup-window bg-light">
+            <button class="popup-close" id="popupClose">X</button>
+            <h2>Select recipient</h2>
+            
+            <button class="bordered-button-dark flex-row-center">
+                <div class="user-avatar"><img src="images/dots-logo.png" alt="Olivia Peterson"></div>
+                <div class="user-name">Olivia Peterson <span class="user-email">(<a href="#">olivia.peterson@example.com</a>)</span></div>
+            </button>
+            <button class="bordered-button-dark flex-row-center">
+                <div class="user-avatar"><img src="images/dots-logo.png" alt="James Carter"></div>
+                <div class="user-name">James Carter <span class="user-email">(<a href="#">james.carter@example.com</a>)</span></div>
+            </button>
+            <button class="bordered-button-dark flex-row-center">
+                <div class="user-avatar"><img src="images/dots-logo.png" alt="Emily Thompson"></div>
+                <div class="user-name">Emily Thompson <span class="user-email">(<a href="#">emily.thompson@example.com</a>)</span></div>
+            </button>
+            <button class="bordered-button-dark flex-row-center">
+                <div class="user-avatar"><img src="images/dots-logo.png" alt="Michael Harris"></div>
+                <div class="user-name">Michael Harris <span class="user-email">(<a href="#">michael.harris@example.com</a>)</span></div>
+            </button>
+            <button class="bordered-button-dark flex-row-center">
+                <div class="user-avatar"><img src="images/dots-logo.png" alt="Sophia Martinez"></div>
+                <div class="user-name">Sophia Martinez <span class="user-email">(<a href="#">sophia.martinez@example.com</a>)</span></div>
+            </button>
+        </div>
+    </div>
+
+
     <div class="section" id="top-menu">
         <h1>G6 Messenger</h1>
         <div id="user-info-btn" class="bordered-button flex-row-center">
-            <div class="user-avatar"><img src="images/dots-logo.png" alt="Don Pedro"></div>
-            <div class="user-name">Don Pedro <span class="user-email">(<a href="#">pedro@pedro.net</a>)</span></div>
+            <div class="user-avatar"><img src="images/dots-logo.png" alt="Obiwan Kenobi"></div>
+            <div class="user-name">Obiwan Kenobi <span class="user-email">(<a href="#">obiwan.kenobi@jediorder.com</a>)</span></div>
         </div>
     </div>
 
@@ -97,9 +153,9 @@
         <div id="left-menu" class="vsection">
             <div id="user-info-block" class="bordered-block">
                 <div class="block-title flex-row-center">
-                    <div class="user-avatar"><img src="images/dots-logo.png" alt="Don Pedro"></div>
+                    <div class="user-avatar"><img src="images/dots-logo.png" alt="Obiwan Kenobi"></div>
                     <div class="user-data">
-                        <div class="user-name">Don Pedro <span class="user-email">(<a href="#">pedro@pedro.net</a>)</span></div>
+                        <div class="user-name">Obiwan Kenobi <span class="user-email">(<a href="#">obiwan.kenobi@jediorder.com</a>)</span></div>
                         <div class="small-txt">g6B...BgP</div>
                     </div>
                 </div>
@@ -122,8 +178,7 @@
                     <span>Total: </span>
                     <span>123456</span>
                 </div>
-
-                <button class="action-btn-big btn-green icon-btn write-msg-btn">Write</button>
+                <button class="action-btn-big icon-btn" id="new-msg-btn">Write</button>
             </div>
         </div>
         
