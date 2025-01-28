@@ -94,15 +94,15 @@
             <button class="action-btn" id="add-recipient-btn">Add recipient</button>
             <div id="new-msg-recipient-lst"></div>
             <form id="writeMsgForm" class="login-form"> 
-                <!-- <div class="form-field">
-                    <label for="subject">Subject:</label>  
-                    <input type="text" name="new-msg-subject" maxlength="32" required>
-                </div> -->
                 <div class="form-field">
                     <textarea name="new-msg-text" id="message" cols="30" rows="10" placeholder="Type your message here..."></textarea>
                 </div>
                 <div class="form-field" id="new-msg-btns-block">
-                    <button class="action-btn-big icon-btn" id="new-msg-attach-file">Attach file</button>
+                    <div id="uploaded-files-list"></div>
+                    <div id="file-upload" class="file-drop-zone icon-btn file-drop-zone bg-light">
+                        <p>Drag and drop files here or <span class="file-upload-trigger">click to upload</span></p>
+                        <input type="file" id="fileInput" multiple style="display: none;">
+                    </div>
                     <button type="submit" class="action-btn-big btn-green icon-btn" id="new-msg-send">Send</button>
                 </div>
             </form>
