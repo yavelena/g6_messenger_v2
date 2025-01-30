@@ -1,5 +1,13 @@
 document.addEventListener('DOMContentLoaded', () => {
     
+    function isMobile() {
+        return window.innerWidth <= 768;
+    }
+
+    const menuToggle = document.getElementById("menu-toggle");
+    const userToggle = document.getElementById("user-info-btn");
+    const leftMenu = document.getElementById("left-menu");
+    
     // Open Register Window
     const register_popup_wnd = document.getElementById('register-popup');
     register_popup_wnd.classList.add('active');
@@ -20,6 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Write a new message
     const newMsgBtn = document.getElementById('new-msg-btn');
     newMsgBtn.addEventListener('click', () => {
+        leftMenu.style.display = "none";
         const newMsgPopup = document.getElementById('new-msg-popup');
         newMsgPopup.classList.add('active');
     });
@@ -99,6 +108,49 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     };
+
+
+    const userInfoBlock = document.getElementById("user-info-block");
+
+    // Closing windows when clicking outside their area
+    document.addEventListener("click", function (event) {
+        if (!userToggle.contains(event.target) && !userInfoBlock.contains(event.target)) {
+            userInfoBlock.style.display = "none";
+        }
+        if (!menuToggle.contains(event.target) && !leftMenu.contains(event.target)) {
+            leftMenu.style.display = "none";
+        }
+    });
+
+    // Listen for window resize to reset display properties in desktop mode
+    window.addEventListener("resize", function () {
+        userInfoBlock.style.display = "none";
+        if (!isMobile()) {
+            leftMenu.style.display = "flex"; // Ensure the menu is visible in desktop mode
+        } else {
+            leftMenu.style.display = "none"; // Hide menu in mobile mode until clicked
+        }
+    });
+
+
+    /********************************/
+    /*********** MOBILE  ************/
+    /********************************/
+
+
+
+    // Open/close left menu 
+    menuToggle.addEventListener("click", function () {
+        leftMenu.style.display = leftMenu.style.display === "block" ? "none" : "block";
+    });
+
+    // Open/close user info
+    userToggle.addEventListener("click", function () {
+        userInfoBlock.style.display = userInfoBlock.style.display === "block" ? "none" : "block";
+    });
+
+    
+
 
 
 });
