@@ -338,7 +338,8 @@ form button{
 /* ID styles */
 
 #register-popup .popup-window{
-    max-width: 500px;
+    /* max-width: 500px; */
+    max-height: 100vh;
 }
 #identityForm{
     max-width: 600px;
