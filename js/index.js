@@ -117,8 +117,10 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!userToggle.contains(event.target) && !userInfoBlock.contains(event.target)) {
             userInfoBlock.style.display = "none";
         }
-        if (!menuToggle.contains(event.target) && !leftMenu.contains(event.target)) {
-            leftMenu.style.display = "none";
+        if (isMobile()) {
+            if (!menuToggle.contains(event.target) && !leftMenu.contains(event.target)) {
+                leftMenu.style.display = "none";
+            }
         }
     });
 
