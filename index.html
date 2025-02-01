@@ -171,14 +171,13 @@
                 <div class="block-title">
                     <h3>Mailbox</h3>
                 </div>
-                <ul class="activity-list">
-                    <li><span>Inbox:</span><span>12</span></li>
-                    <li><span>Sent:</span><span>48</span></li>
-                    <li><span>Unread:</span><span><b>4</b></span></li>
+                <ul class="activity-list menu-list">
+                    <li id="show-inbox"><span>Inbox</span><span>12 (<big><b>4</b></big>)</span></li>
+                    <li id="show-sent"><span>Sent</span><span>48</span></li>
                 </ul>
                 <div class="activity-footer">
                     <span>Total: </span>
-                    <span>123456</span>
+                    <span>60</span>
                 </div>
                 <button class="action-btn-big icon-btn" id="new-msg-btn">Write</button>
             </div>
@@ -186,7 +185,7 @@
         
         <div id="main-block">
             <div id="mailbox" class="section">
-                <div class="bordered-block" id="incoming-msg">
+                <div id="inbox" class="bordered-block mailbox-block" >
                     <div class="block-title"><h3>Inbox</h3></div>
                     <div class="block-content">
                         <table class="mail-list" cellspacing="0" cellpadding="5">
@@ -219,8 +218,45 @@
                                 </tr>
                             </tbody>
                         </table>
+                    </div>
                 </div>
-            </div>
+
+                <!-- Sent -->
+                <div id="sent" class="bordered-block  mailbox-block" >
+                    <div class="block-title"><h3>Sent messages</h3></div>
+                    <div class="block-content">
+                        <table class="mail-list" cellspacing="0" cellpadding="5">
+                            <thead>
+                                <tr>
+                                    <th>To whom</th>
+                                    <th>Message</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>[Alex Carter]</td>
+                                    <td>Project Update: Milestone Reached</td>
+                                </tr>
+                                <tr>
+                                    <td>[Sophia Martinez]</td>
+                                    <td>Invitation to Collaboration</td>
+                                </tr>
+                                <tr>
+                                    <td>[James Bennett]</td>
+                                    <td>Follow-Up on Our Discussion</td>
+                                </tr>
+                                <tr>
+                                    <td>[Olivia Reynolds]</td>
+                                    <td>Proposal for Next Steps</td>
+                                </tr>
+                                <tr>
+                                    <td>[Daniel Foster]</td>
+                                    <td>Urgent: Feedback Required</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
         </div>
 
     </div>

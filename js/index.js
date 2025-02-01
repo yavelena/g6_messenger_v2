@@ -1,13 +1,18 @@
 document.addEventListener('DOMContentLoaded', () => {
+
+    const menuToggle = document.getElementById("menu-toggle");
+    const userToggle = document.getElementById("user-info-btn");
+    const leftMenu = document.getElementById("left-menu");
+    const userInfoBlock = document.getElementById("user-info-block");
+
+    let mailbox_blocks = document.querySelectorAll(".mailbox-block");
+    const mailbox_inbox = document.getElementById("inbox");
+    const mailbox_sent = document.getElementById("sent");
     
     function isMobile() {
         return window.innerWidth <= 768;
     }
 
-    const menuToggle = document.getElementById("menu-toggle");
-    const userToggle = document.getElementById("user-info-btn");
-    const leftMenu = document.getElementById("left-menu");
-    
     // Open Register Window
     const register_popup_wnd = document.getElementById('register-popup');
     register_popup_wnd.classList.add('active');
@@ -17,7 +22,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     closeButtons.forEach((button) => {
         button.addEventListener('click', () => {
-            // Find the closest parent element with the class 'popup-overlay'
             const popup = button.closest('.popup-overlay');
             if (popup) {
                 popup.classList.remove('active'); // Hide the popup
@@ -28,7 +32,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Write a new message
     const newMsgBtn = document.getElementById('new-msg-btn');
     newMsgBtn.addEventListener('click', () => {
-        leftMenu.style.display = "none";
+        if (isMobile()){
+            leftMenu.style.display = "none";
+        }
         const newMsgPopup = document.getElementById('new-msg-popup');
         newMsgPopup.classList.add('active');
     });
@@ -40,7 +46,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
-    // DROP FILE
+    /********************************/
+    /********* DROP FILE ************/
+    /********************************/
+
     const fileDropZone = document.getElementById('file-upload');
     const fileInput = document.getElementById('fileInput');
     const uploadedFilesList = document.getElementById('uploaded-files-list');
@@ -110,7 +119,26 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
 
-    const userInfoBlock = document.getElementById("user-info-block");
+    // MAILBOX BLOCKS
+
+    function hideMailboxBlocks() {
+        mailbox_blocks.forEach(function(block){
+            block.style.display = "none";
+        })
+    }
+    hideMailboxBlocks();
+    mailbox_inbox.style.display = "block";
+
+    document.getElementById("show-inbox").addEventListener("click", function() {
+        hideMailboxBlocks();
+        mailbox_inbox.style.display = "block";
+    });
+    document.getElementById("show-sent").addEventListener("click", function() {
+        hideMailboxBlocks();
+        mailbox_sent.style.display = "block";
+    });
+
+
 
     // Closing windows when clicking outside their area
     document.addEventListener("click", function (event) {
@@ -139,8 +167,6 @@ document.addEventListener('DOMContentLoaded', () => {
     /*********** MOBILE  ************/
     /********************************/
 
-
-
     // Open/close left menu 
     menuToggle.addEventListener("click", function () {
         leftMenu.style.display = leftMenu.style.display === "block" ? "none" : "block";
@@ -150,9 +176,6 @@ document.addEventListener('DOMContentLoaded', () => {
     userToggle.addEventListener("click", function () {
         userInfoBlock.style.display = userInfoBlock.style.display === "block" ? "none" : "block";
     });
-
-    
-
 
 
 });
