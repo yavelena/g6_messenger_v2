@@ -76,8 +76,13 @@ button{
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
     padding: 10px 15px;
 }
-.bordered-button{
+
+.bordered-button, .bordered-button-dark{
     cursor: pointer;
+    transition: transform 0.3s ease;
+}
+.bordered-button:hover, .bordered-button-dark:hover{
+    transform: scale(1.01);
 }
 .bordered-button-dark{
     /* border: 1px solid rgba(0, 0, 0, 0.2); */
@@ -365,12 +370,11 @@ form button{
 #user-info-btn{
     cursor: pointer;
 }
-
 .user-avatar img{
     width: 35px; 
     transition: transform 0.3s ease;
 }
-#user-avatar img:hover {
+.user-avatar img:hover {
     transform: scale(1.1); 
 }
 #user-info-block {

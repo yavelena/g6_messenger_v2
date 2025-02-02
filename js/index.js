@@ -13,6 +13,19 @@ document.addEventListener('DOMContentLoaded', () => {
         return window.innerWidth <= 768;
     }
 
+    function hideLeftMenuMobile() {
+        if (isMobile()) {
+            leftMenu.style.display = "none";
+        }    
+    }
+
+    function hideMailboxBlocks() {
+        mailbox_blocks.forEach(function(block){
+            block.style.display = "none";
+        })
+        hideLeftMenuMobile();
+    }
+
     // Open Register Window
     const register_popup_wnd = document.getElementById('register-popup');
     register_popup_wnd.classList.add('active');
@@ -32,9 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Write a new message
     const newMsgBtn = document.getElementById('new-msg-btn');
     newMsgBtn.addEventListener('click', () => {
-        if (isMobile()){
-            leftMenu.style.display = "none";
-        }
+        hideLeftMenuMobile();
         const newMsgPopup = document.getElementById('new-msg-popup');
         newMsgPopup.classList.add('active');
     });
@@ -121,11 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // MAILBOX BLOCKS
 
-    function hideMailboxBlocks() {
-        mailbox_blocks.forEach(function(block){
-            block.style.display = "none";
-        })
-    }
+
     hideMailboxBlocks();
     mailbox_inbox.style.display = "block";
 
